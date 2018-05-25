@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Categories</h5>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Color</th>
+            <th scope="col" colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @categories.each do |category| %>
+              <tr>
+                <th scope="row"><%= category.id %></th>
+                <td><%= category.name %></td>
+                <td class="bg-<%= category.color %>"></td>
+                <td><%= link_to 'Show', category %></td>
+                <td><%= link_to 'Edit', edit_category_path(category) %></td>
+                <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <%= link_to 'New Category', new_category_path,:class => 'card-link' %>
+      </div>
+    </div>
+  </div>
+</div>
+

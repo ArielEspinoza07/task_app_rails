@@ -1,0 +1,14 @@
+<div class="row justify-content-center">
+  <div class="col-4">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Editing Status</h5>
+
+        <%= render 'form', status: @status %>
+
+        <%= link_to 'Show', @status ,:class => 'card-link'%>
+        <%= link_to 'Back', statuses_path ,:class => 'card-link'%>
+      </div>
+    </div>
+  </div>
+</div>

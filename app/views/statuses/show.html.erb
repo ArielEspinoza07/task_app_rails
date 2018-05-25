@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Statuses</h5>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Color</th>
+          </tr>
+          </thead>
+
+          <tbody>
+              <tr>
+                <td scope="row"><%= @status.id %></td>
+                <td><%= @status.name %></td>
+                <td class="bg-<%= @status.color %>"></td>
+              </tr>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'Edit', edit_status_path(@status) ,:class => 'card-link'%>
+        <%= link_to 'Back', statuses_path ,:class => 'card-link'%>
+      </div>
+    </div>
+  </div>
+</div>

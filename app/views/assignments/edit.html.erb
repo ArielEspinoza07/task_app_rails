@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Editing Assignment</h5>
+        <%= render 'form', assignment: @assignment %>
+        <%= link_to 'Show', @assignment ,:class => 'card-link' %>
+        <%= link_to 'Back', assignments_path ,:class => 'card-link'%>
+      </div>
+    </div>
+  </div>
+</div>

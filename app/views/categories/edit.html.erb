@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+  <div class="col-4">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Editing Category</h5>
+        <%= render 'form', category: @category %>
+
+        <%= link_to 'Show', @category ,:class => 'card-link' %>
+        <%= link_to 'Back', categories_path ,:class => 'card-link'%>
+      </div>
+    </div>
+  </div>
+</div>

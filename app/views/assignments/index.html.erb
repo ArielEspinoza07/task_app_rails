@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="card  ">
+      <div class="card-body">
+        <h5 class="card-title">Assignments</h5>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+            <th scope="col">End</th>
+            <th scope="col">User</th>
+            <th scope="col">Status</th>
+            <th scope="col">Category</th>
+            <th scope="col" colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @assignments.each do |assignment| %>
+              <tr>
+                <td scope="row"><%= assignment.id %></td>
+                <td><%= assignment.title %></td>
+                <td><%= assignment.body %></td>
+                <td><%= assignment.end %></td>
+                <td><%= assignment.created_at %></td>
+                <td><%= assignment.created_at %></td>
+                <td><%= assignment.created_at %></td>
+                <td><%= link_to 'Show', assignment %></td>
+                <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+                <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <%= link_to 'New Assignment', new_assignment_path , :class => 'card-link' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
