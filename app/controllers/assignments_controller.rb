@@ -15,16 +15,20 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new
   def new
     @assignment = Assignment.new
+    @categories = Category.all
+    @statuses    = Status.all
   end
 
   # GET /assignments/1/edit
   def edit
+    @categories = Category.all
+    @statuses    = Status.all
   end
 
   # POST /assignments
   # POST /assignments.json
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = current_user.assignments.new(assignment_params)
 
     respond_to do |format|
       if @assignment.save
@@ -69,6 +73,6 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:title, :body, :end, :users_id, :statuses_id, :categories_id)
+      params.require(:assignment).permit(:title, :body, :end, :statuses_id, :categories_id)
     end
 end
