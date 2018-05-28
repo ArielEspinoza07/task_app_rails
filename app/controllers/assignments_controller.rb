@@ -1,5 +1,7 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_form_values, only: [:new,:edit]
+  before_action :authenticate_user!
 
   # GET /assignments
   # GET /assignments.json
@@ -15,14 +17,11 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new
   def new
     @assignment = Assignment.new
-    @categories = Category.all
-    @statuses    = Status.all
+
   end
 
   # GET /assignments/1/edit
   def edit
-    @categories = Category.all
-    @statuses    = Status.all
   end
 
   # POST /assignments
@@ -74,5 +73,10 @@ class AssignmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit(:title, :body, :end, :statuses_id, :categories_id)
+    end
+
+    def set_form_values
+      @categories = Category.all
+      @statuses   = Status.all
     end
 end
